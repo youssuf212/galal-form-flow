@@ -87,11 +87,18 @@ const MembershipForm = () => {
     if (!validateForm()) return;
     setIsSubmitting(true);
     try {
-      // TODO: Replace with actual webhook URL for n8n
-      console.log("Form data to be sent to webhook:", formData);
+      // Send form data to n8n webhook
+      const response = await fetch('https://joegalalaa.app.n8n.cloud/webhook-test/ba28abe8-0c19-49d5-955f-0a39b2317918', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
       
       setIsSubmitted(true);
 
