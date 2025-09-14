@@ -88,7 +88,7 @@ const MembershipForm = () => {
     setIsSubmitting(true);
     try {
       // Send form data to n8n webhook
-      const response = await fetch('https://joegalalaa.app.n8n.cloud/webhook-test/ba28abe8-0c19-49d5-955f-0a39b2317918', {
+      const response = await fetch('https://joegalalaa.app.n8n.cloud/webhook/ba28abe8-0c19-49d5-955f-0a39b2317918', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
